@@ -3,5 +3,5 @@
 # example
 # /system
 # /system_ext
-/data/adb/modules
+/data/adb
 /debug_ramdisk

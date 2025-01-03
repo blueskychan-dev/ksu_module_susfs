@@ -3,7 +3,7 @@ MODDIR=/data/adb/modules/susfs4ksu
 SUSFS_BIN=/data/adb/ksu/bin/ksu_susfs
 source ${MODDIR}/utils.sh
 PERSISTENT_DIR=/data/adb/susfs4ksu
-tmpfolder=/debug_ramdisk/susfs4ksu
+tmpfolder=/data/adb/susfs4ksu
 logfile="$tmpfolder/logs/susfs.log"
 logfile1="$tmpfolder/logs/susfs1.log"
 version=$(${SUSFS_BIN} show version)
@@ -64,8 +64,8 @@ fi
 # echo "spoof_cmdline=1" >> /data/adb/susfs4ksu/config.sh
 [ $spoof_cmdline = 1 ] && {
 	echo "susfs4ksu/boot-completed: [spoof_cmdline]" >> $logfile1
-	sed 's|androidboot.verifiedbootstate=orange|androidboot.verifiedbootstate=green|g' /proc/cmdline > /debug_ramdisk/susfs4ksu/cmdline
-	${SUSFS_BIN} set_proc_cmdline /debug_ramdisk/susfs4ksu/cmdline
+	sed 's|androidboot.verifiedbootstate=orange|androidboot.verifiedbootstate=green|g' /proc/cmdline > /data/adb/susfs4ksu/cmdline
+	${SUSFS_BIN} set_proc_cmdline /data/adb/susfs4ksu/cmdline
 }
 
 # echo "hide_revanced=1" >> /data/adb/susfs4ksu/config.sh
